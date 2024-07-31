@@ -120,3 +120,20 @@
     line-height: $value;
   }
 }
+
+// text-align
+@each $text-item in $text-align {
+  .text-align-#{$text-item} {
+    text-align: $text-item;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $text-item in $text-align {
+      .text-align-#{$breakpoint}-#{$text-item} {
+        text-align: $text-item;
+      }
+    }
+  }
+}

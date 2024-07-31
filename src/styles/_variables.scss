@@ -120,6 +120,8 @@ $letter-spacing: (
   10: 1.5em
 );
 
+$text-align: (start, end, left, right, center, justify);
+
 /* spacing */
 $spacer: 1rem;
 $spacer-step: 0.25;
@@ -151,8 +153,8 @@ $space-direction: (
   a: all,
   x: x,
   y: y,
-  s: right,
-  e: left,
+  s: left,
+  e: right,
   t: top,
   b: bottom
 );

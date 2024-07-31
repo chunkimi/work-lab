@@ -34,3 +34,10 @@
     }
   }
 }
+
+.block-spacing {
+  padding: 5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
