@@ -1,0 +1,130 @@
+@use 'sass:math';
+
+// grid
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $gutter-half;
+
+  @each $breakpoint, $width in $media-container-width {
+    @include media-breakpoint($breakpoint) {
+      max-width: $width;
+    }
+  }
+}
+
+.row {
+  margin-left: -$gutter-half;
+  margin-right: -$gutter-half;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%col {
+  position: relative;
+  padding: 0px $gutter-half;
+}
+
+@for $i from 1 through $grid-num {
+  .col-#{$i} {
+    @extend %col;
+    max-width: calc(100% * #{math.div($i, $grid-num)});
+    flex: 0 0 calc(100% * #{math.div($i, $grid-num)});
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @if $breakpoint != 'xs' {
+    @for $i from 1 through $grid-num {
+      .col-#{$breakpoint}-#{$i} {
+        @include media-breakpoint($breakpoint) {
+          max-width: calc(100% * #{math.div($i, $grid-num)});
+          flex: 0 0 calc(100% * #{math.div($i, $grid-num)});
+        }
+      }
+    }
+  }
+}
+
+// margin ane padding
+@function get-direction-styles($direction, $type-value, $spacer-value) {
+  @if $direction == a {
+    @return (#{$type-value}: $spacer-value);
+  }
+  @if $direction == x {
+    @return (#{$type-value}-left: $spacer-value, #{$type-value}-right: $spacer-value);
+  } @else if $direction == y {
+    @return (#{$type-value}-top: $spacer-value, #{$type-value}-bottom: $spacer-value);
+  } @else {
+    @return (#{$type-value}-#{$direction}: $spacer-value);
+  }
+}
+
+@each $type-key, $type-value in $spacing-type {
+  @each $direction-key, $direction-value in $space-direction {
+    @each $spacer-key, $spacer-value in $spacers {
+      @each $breakpoint-key, $breakpoint-value in $media-breakpoints-width {
+        @if $breakpoint-key == xs {
+          .#{$type-key}#{$direction-key}-#{$spacer-key} {
+            @each $property,
+              $value in get-direction-styles($direction-key, $type-value, $spacer-value)
+            {
+              #{$property}: #{$value};
+            }
+          }
+        } @else {
+          @include media-breakpoint($breakpoint-key) {
+            .#{$type-key}#{$direction-key}-#{$breakpoint-key}-#{$spacer-key} {
+              @each $property,
+                $value in get-direction-styles($direction-key, $type-value, $spacer-value)
+              {
+                #{$property}: #{$value};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// flex
+@each $display-key, $display-value in $display-type {
+  @each $breakpoint, $width in $media-breakpoints-width {
+    .d-#{$breakpoint}-#{$display-key} {
+      @include media-breakpoint($breakpoint) {
+        display: $display-value;
+      }
+    }
+  }
+}
+
+@each $direction-key, $direction-value in $flex-direction {
+  @each $breakpoint, $width in $media-breakpoints-width {
+    .flex-#{$breakpoint}-#{$direction-key} {
+      @include media-breakpoint($breakpoint) {
+        flex-direction: $direction-value;
+      }
+    }
+  }
+}
+
+@each $justify-content-key, $justify-content-value in $justify-content {
+  @each $breakpoint, $width in $media-breakpoints-width {
+    .justify-content-#{$breakpoint}-#{$justify-content-key} {
+      @include media-breakpoint($breakpoint) {
+        flex-direction: $justify-content-value;
+      }
+    }
+  }
+}
+
+@each $align-items-key, $align-items-value in $align-items {
+  @each $breakpoint, $width in $media-breakpoints-width {
+    .align-items-#{$breakpoint}-#{$align-items-key} {
+      @include media-breakpoint($breakpoint) {
+        flex-direction: $align-items-value;
+      }
+    }
+  }
+}

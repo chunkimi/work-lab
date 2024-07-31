@@ -1,0 +1,36 @@
+// text-color
+@each $color-key, $color-value in $theme-colors {
+  .tc-#{$color-key} {
+    color: $color-value;
+  }
+}
+
+// link
+@each $key, $value in $toggle-colors-plan {
+  .link-#{$key} {
+    color: map-get($theme-colors, $key);
+    &:hover,
+    &:focus,
+    &:active {
+      color: $value;
+    }
+    &:visited {
+      color: map-get($theme-colors, $key);
+    }
+  }
+}
+
+// background-color
+.bg {
+  @each $key, $value in $theme-colors {
+    &-#{$key} {
+      background-color: $value;
+    }
+
+    @each $opacity-key, $opacity-value in $bg-opacity-levels {
+      &-#{$key}-#{$opacity-key} {
+        background-color: rgba(red($value), green($value), blue($value), $opacity-value);
+      }
+    }
+  }
+}

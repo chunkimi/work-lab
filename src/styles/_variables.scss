@@ -1,0 +1,205 @@
+/* media */
+$media-breakpoints-width: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+/* color */
+$primary: #ffd06b;
+$secondary: #8cd9f3;
+$tertiary: #ed7ab0;
+$quaternary: #8ecfbd;
+$auxiliary: #b0b0b0;
+$info: #306aa7;
+$success: #03bd70;
+$warning: #f8aa1f;
+$danger: #fa5c66;
+$light: #ffffff;
+$dark: #2f2f2f;
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  tertiary: $tertiary,
+  quaternary: $quaternary,
+  auxiliary: $auxiliary,
+  info: $info,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark
+);
+
+$toggle-colors-plan: (
+  primary: $warning,
+  secondary: $info,
+  tertiary: $danger,
+  quaternary: $success,
+  auxiliary: $dark,
+  info: $secondary,
+  success: $quaternary,
+  warning: $primary,
+  danger: $tertiary,
+  light: $dark,
+  dark: $light
+);
+
+$light-color-system: (primary, secondary, tertiary, quaternary, auxiliary, light);
+$dark-color-system: (info, success, warning, danger, dark);
+
+$bg-opacity-levels: (
+  90: 0.9,
+  75: 0.75,
+  50: 0.5,
+  25: 0.25
+);
+
+/* typography */
+$base-font-size: 16px;
+
+$font-sizes-1: 6rem;
+$font-sizes-2: 3.75rem;
+$font-sizes-3: 3rem;
+$font-sizes-4: 2.5rem;
+$font-sizes-5: 1.5rem;
+$font-sizes-6: 1.25rem;
+$font-sizes-7: 1rem;
+$font-sizes-8: 0.75rem;
+$font-sizes-9: 0.5rem;
+
+$font-sizes: (
+  1: $font-sizes-1,
+  2: $font-sizes-2,
+  3: $font-sizes-3,
+  4: $font-sizes-4,
+  5: $font-sizes-5,
+  6: $font-sizes-6,
+  7: $font-sizes-7,
+  8: $font-sizes-8,
+  9: $font-sizes-9
+);
+
+$font-size-multipliers: (
+  xs: 0.6,
+  sm: 0.6,
+  md: 0.75,
+  lg: 0.9,
+  xl: 1
+);
+
+$font-weight: (
+  lighter: 100,
+  light: 300,
+  normal: 400,
+  bold: 700,
+  bolder: 900
+);
+
+$line-height: (
+  xs: 1,
+  sm: 1.25,
+  base: 1.5,
+  lg: 2
+);
+
+$letter-spacing: (
+  1: -1.5em,
+  2: -0.5em,
+  3: 0em,
+  4: 0.1em,
+  5: 0.15em,
+  6: 0.25em,
+  7: 0.4em,
+  8: 0.5em,
+  9: 1.25em,
+  10: 1.5em
+);
+
+/* spacing */
+$spacer: 1rem;
+$spacer-step: 0.25;
+$spacers: ();
+@for $i from 0 through 20 {
+  $value: $spacer * ($i * $spacer-step);
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: $value
+    )
+  );
+}
+
+/* layout */
+$gutter-width: 24px;
+$gutter-half: calc($gutter-width/ 2);
+$grid-num: 12;
+
+$media-container-width: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+$space-direction: (
+  a: all,
+  x: x,
+  y: y,
+  s: right,
+  e: left,
+  t: top,
+  b: bottom
+);
+
+$spacing-type: (
+  p: padding,
+  m: margin
+);
+
+$display-type: (
+  none: none,
+  flex: flex,
+  block: block,
+  inline-block: inline-block,
+  grid: grid
+);
+
+$flex-direction: (
+  row: row,
+  row-reverse: row-reverse,
+  column: column,
+  column-reverse: column-reverse
+);
+
+$justify-content: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+
+$align-items: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+/* components */
+
+$btn-padding: 0.5rem 0.75rem;
+$btn-border-radius: 0.25rem;
+$btn-size-base: 1rem;
+$btn-sizes: (
+  sm: 0.75rem,
+  lg: 1.25rem
+);

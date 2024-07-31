@@ -1,0 +1,66 @@
+.btn {
+  display: inline-block;
+  padding: $btn-padding;
+  border: none;
+  border-radius: $btn-border-radius;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  font-size: $btn-size-base;
+  @each $key, $value in $btn-sizes {
+    &-#{$key} {
+      font-size: $value;
+    }
+  }
+
+  @each $key, $value in $toggle-colors-plan {
+    &-#{$key} {
+      background-color: map-get($theme-colors, $key);
+
+      @if index($light-color-system, $key) {
+        color: $dark;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $value;
+          color: $light;
+        }
+      } @else if index($dark-color-system, $key) {
+        color: $light;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $value;
+          color: $dark;
+        }
+      }
+    }
+  }
+  @each $key, $value in $theme-colors {
+    &-outline-#{$key} {
+      border: 1px solid $value;
+      color: $value;
+      background-color: transparent;
+      @if index($light-color-system, $key) {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $value;
+          color: $dark;
+        }
+      } @else if index($dark-color-system, $key) {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $value;
+          color: $light;
+        }
+      }
+    }
+  }
+}
