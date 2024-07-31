@@ -3,6 +3,7 @@ import GateView from '@/views/GateView.vue'
 import LayoutView from '@/views/LayoutView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import ResumeView from '@/views/ResumeView.vue'
+import StyleOverView from '@/views/assistant/StyleOverView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/resume',
     name: 'Resume',
     component: ResumeView
+  },
+  {
+    path: '/assistant',
+    name: 'StyleOverView',
+    component: StyleOverView
   }
 ]
 
