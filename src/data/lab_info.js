@@ -5,6 +5,6 @@ export const labInfo = {
   holders: `${holder}'s`,
   platform,
   title: `${holder}'s ${platform}`,
-  intro: '前端工程師開發筆記與專案',
+  intro: "Frontend Developer's Notes and Projects",
   copyright: '© Kimi 2024'
 }

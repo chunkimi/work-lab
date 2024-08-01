@@ -14,9 +14,6 @@
     &:active {
       color: $value;
     }
-    &:visited {
-      color: map-get($theme-colors, $key);
-    }
   }
 }
 
@@ -40,4 +37,18 @@
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+
+.list {
+  &-unstyled {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.text-decoration {
+  &-none {
+    text-decoration: none;
+  }
 }
