@@ -9,6 +9,6 @@ export const navMenu = [
   },
   {
     title: 'my project',
-    to: { name: 'Profile' }
+    to: { name: 'Project' }
   }
 ]
