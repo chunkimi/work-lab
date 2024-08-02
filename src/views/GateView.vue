@@ -32,8 +32,8 @@
       width: 60px;
       height: 60px;
       bottom: 10%;
-      right: 25%;
-      transform: translate(-50%, -50%);
+      right: 20%;
+      transform: translate(50%, 50%);
       opacity: 0.3;
       animation: smDote 0.9s ease-out forwards;
     }
@@ -113,17 +113,9 @@
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
+import { navMenu } from '@/utils/navUtils'
 import { labInfo } from '@/data/lab_info.js'
 const gateConfig = {
-  navLink: [
-    {
-      title: 'about me',
-      to: { name: 'Profile' }
-    },
-    {
-      title: 'my project',
-      to: { name: 'Project' }
-    }
-  ]
+  navLink: navMenu.filter((item) => item.title !== 'gate')
 }
 </script>

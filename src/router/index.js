@@ -4,6 +4,7 @@ import LayoutView from '@/views/LayoutView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import ProjectView from '@/views/ProjectView.vue'
 import ResumeView from '@/views/ResumeView.vue'
+import PageNotFoundView from '@/views/PageNotFoundView.vue'
 import StyleOverView from '@/views/assistant/StyleOverView.vue'
 
 const routes = [
@@ -42,6 +43,21 @@ const routes = [
     path: '/assistant',
     name: 'StyleOverView',
     component: StyleOverView
+  },
+  {
+    path: '/404',
+    component: LayoutView,
+    children: [
+      {
+        path: '',
+        name: '404',
+        component: PageNotFoundView
+      }
+    ]
+  },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: '/404'
   }
 ]
 
