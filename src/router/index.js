@@ -9,7 +9,7 @@ import StyleOverView from '@/views/assistant/StyleOverView.vue'
 const routes = [
   {
     path: '/',
-    name: 'gate',
+    name: 'Gate',
     component: GateView
   },
   {

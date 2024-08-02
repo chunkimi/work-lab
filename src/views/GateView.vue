@@ -75,7 +75,6 @@
     p {
       animation-delay: 1s;
     }
-
   }
 
   @keyframes textFadeInUp {

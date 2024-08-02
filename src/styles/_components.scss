@@ -10,6 +10,7 @@
     background-color 0.3s ease,
     color 0.3s ease;
   font-size: $btn-size-base;
+  background-color: transparent;
   @each $key, $value in $btn-sizes {
     &-#{$key} {
       font-size: $value;
@@ -45,7 +46,6 @@
     &-outline-#{$key} {
       border: 1px solid $value;
       color: $value;
-      background-color: transparent;
       @if index($light-color-system, $key) {
         &:hover,
         &:focus,
