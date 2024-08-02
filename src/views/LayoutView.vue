@@ -50,12 +50,14 @@
   <div class="layout__wrap">
     <header class="bg-info">
       <div class="container d-flex justify-content-between align-items-center py-5">
-        <h2 class="heading-h5 tc-primary ff-particular">{{ labInfo.title }}</h2>
+        <RouterLink :to="layoutConfig.indexLink.to" class="text-decoration-none">
+          <h2 class="heading-h5 tc-primary ff-particular">{{ labInfo.title }}</h2>
+        </RouterLink>
         <nav>
           <RouterLink
             type="button"
             class="btn btn-outline-primary mx-2"
-            v-for="linkItem in navMenu"
+            v-for="linkItem in layoutConfig.navLink"
             :key="linkItem.title"
             :to="linkItem.to"
             >{{ linkItem.title }}</RouterLink
@@ -75,4 +77,9 @@
 import { RouterView, RouterLink } from 'vue-router'
 import { labInfo } from '@/data/lab_info.js'
 import { navMenu } from '@/utils/navUtils.js'
+
+const layoutConfig = {
+  indexLink: navMenu.find((item) => item.title === 'gate'),
+  navLink: navMenu.filter((item) => item.title !== 'gate')
+}
 </script>
