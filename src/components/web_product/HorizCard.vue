@@ -17,6 +17,8 @@
 
   &__body {
     padding: 1.25rem 0.75rem;
+    background-color: $light;
+    border-radius: 10px;
     @include media-breakpoint(lg) {
       padding: 1.25rem 1.5rem;
     }
