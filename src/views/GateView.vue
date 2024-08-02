@@ -122,7 +122,7 @@ const gateConfig = {
     },
     {
       title: 'my project',
-      to: { name: 'Profile' }
+      to: { name: 'Project' }
     }
   ]
 }
