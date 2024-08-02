@@ -11,7 +11,7 @@
     "info_en": {
       "website": "Hiking Friends",
       "description": "This platform is about nature trails. It uses government data and provides member CRUD functionality. You can search and browse in many ways. It also helps registered members save, rate, review, and view personal charts through JSON format conversion.",
-      "nature": "Personal Project",
+      "nature": "Personal Side Project",
       "role": "Front-end Developer, Planner",
       "task": "Front-end Development,Wireframe, Content Planning "
     },
@@ -33,7 +33,7 @@
     "info_en": {
       "website": "2020 Taiwan Presidential Election Election Hub",
       "description": "This voting query and analysis platform uses real voting data from the government and simulated candidates, giving detailed analysis through different charts and views.",
-      "nature": "Team Collaboration",
+      "nature": "Team Collaboration Side Project",
       "role": "Front-end Developer, Planner",
       "task": "Front-end Development, Wireframe, Content Planning "
     },

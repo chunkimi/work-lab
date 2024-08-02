@@ -69,139 +69,19 @@
   <div class="container">
     <div class="block-spacing">
       <h1 class="heading-h3 text-align-end tc-warning">{{ projectConfig.pageTitle }}</h1>
-      <ul class="list-unstyled row">
-        <li class="col-12" v-for="productItem in productInfoData" :key="productItem.id">
-          <div class="project__item">
-            <img
-              :src="getImage(turnProductImgPath(productItem.img))"
-              alt="product-img"
-              class="project__img"
-            />
-            <div class="project__body">
-              <div class="content__body">
-                <div>
-                  <h5 class="heading-h5 tc-info">{{ productItem.title }}</h5>
-                  <p class="fz-7 tc-tertiary">{{ productItem.nature }}</p>
-                </div>
-                <p class="fz-fixed-7">{{ productItem.description }}</p>
-                <ul class="list-unstyled d-flex">
-                  <li
-                    v-for="developItem in productItem.develop"
-                    :key="developItem"
-                    class="content__label"
-                  >
-                    {{ developItem }}
-                  </li>
-                </ul>
-                <div>
-                  <p class="content__info">
-                    <span class="material-symbols-outlined">
-                      {{ contentConfig.workIcon.role }}
-                    </span>
-                    <span class="ms-2">{{ productItem.role }}</span>
-                  </p>
-                  <p class="content__info" v-if="!productItem.is_front_end_develop">
-                    <span class="material-symbols-outlined">
-                      {{ contentConfig.workIcon.task }}
-                    </span>
-                    <span class="ms-2">{{ productItem.task }}</span>
-                  </p>
-                </div>
-                <ul class="list-unstyled row">
-                  <li v-for="urlItem in productItem.linkUrl" :key="urlItem" class="col-6">
-                    <a :href="urlItem.url" target="_blank" class="btn btn-primary content__btn"
-                      ><i class="bi" :class="turnUrlIcon(urlItem.type)"></i
-                      ><span class="mx-2">{{ turnUrlText(languageMode, urlItem.type) }}</span></a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <HorizCard
+        :language-mode="projectConfig.infoLanguageMode"
+        :products-data="productDevelopData"
+      />
     </div>
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
-import { getImage } from '@/utils/imgUtils.js'
+import HorizCard from '@/components/web_product/HorizCard.vue'
 import productDevelopData from '@/data/web_product_develop.json'
 
 const projectConfig = {
-  pageTitle: 'My Project'
-}
-
-const contentConfig = {
-  workIcon: {
-    role: 'badge',
-    task: 'build'
-  },
-  productUrlConfig: [
-    { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
-    { type: 'web', icon: 'bi-window-fullscreen', textEn: 'static website', textZh: '網站' }
-  ]
-}
-
-const webProductUrlConfig = [
-  { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
-  { type: 'web', icon: 'bi-window-fullscreen', textEn: 'static website', textZh: '網站' }
-]
-
-const languageMode = 'en'
-
-const productInfoData = computed(() => {
-  return productDevelopData.map((product) => {
-    const { info_zh, info_en, repo_url, web_url, develop_label, ...others } = product
-
-    const linkUrl = []
-    if (web_url !== '') {
-      const web = { type: 'web', url: web_url }
-      linkUrl.push(web)
-    }
-
-    if (repo_url !== '') {
-      const repo = { type: 'github', url: repo_url }
-      linkUrl.push(repo)
-    }
-    if (languageMode === 'en') {
-      return {
-        title: info_en.website,
-        description: info_en.description,
-        nature: info_en.nature,
-        role: info_en.role,
-        task: info_en.task,
-        develop: develop_label,
-        linkUrl,
-        ...others
-      }
-    } else if (languageMode === 'zh') {
-      return {
-        title: info_en.website,
-        description: info_zh.description,
-        nature: info_zh.nature,
-        role: info_zh.role,
-        task: info_zh.task,
-        develop: develop_label,
-        linkUrl,
-        ...others
-      }
-    }
-  })
-})
-
-function turnProductImgPath(img) {
-  return `assets/images/web_product/${img}__preview.jpg`
-}
-
-function turnUrlIcon(specifyType) {
-  const specifyItem = webProductUrlConfig.find((item) => item.type === specifyType)
-  return specifyItem.icon
-}
-
-function turnUrlText(language, specifyType) {
-  const specifyItem = webProductUrlConfig.find((item) => item.type === specifyType)
-  const text = language === 'en' ? specifyItem.textEn : specifyItem.textZh
-  return text
+  pageTitle: 'My Project',
+  infoLanguageMode: 'en'
 }
 </script>
