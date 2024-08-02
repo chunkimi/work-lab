@@ -24,7 +24,7 @@
   <div class="container py-20">
     <h1 class="fs-fixed-7 tc-info mb-5">{{ profileConfig.title }}</h1>
     <h2 class="heading-h2 mb-5 tc-warning ff-particular pe-5 me">{{ profileData.name }}</h2>
-    <p class="fs-fixed-6 mb-5 fw-light" v-html="formattedIntro"></p>
+    <div class="fs-fixed-6 mb-5 fw-light" v-html="formattedIntro"></div>
     <ul class="list-unstyled profile__list">
       <li
         v-for="skillItem in allSkills"
@@ -63,7 +63,7 @@ const profileConfig = {
 }
 
 const formattedIntro = computed(() => {
-  return profileData.simple_intro.join('<br/>')
+  return profileData.simple_intro_en.map((paragraph) => `<p class="mb-4">${paragraph}</p>`).join('')
 })
 
 const allSkills = computed(() => {
