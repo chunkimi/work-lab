@@ -35,7 +35,7 @@
     }
     @include media-breakpoint(lg) {
       display: grid;
-      grid-template-columns: 2fr 3fr;
+      grid-template-columns: 3.5fr 5fr;
     }
   }
 }
@@ -43,7 +43,7 @@
 
 <template>
   <ul class="list-unstyled row">
-    <li class="col-12" v-for="productItem in productInfoData" :key="productItem.id">
+    <li class="col-12" v-for="productItem in productInfoData" :key="productItem.cardId">
       <div class="horiz-card__item">
         <img
           :src="getImage(turnProductImgPath(productItem.img))"
@@ -51,7 +51,6 @@
           class="horiz-card__img"
         />
         <div class="horiz-card__body">
-          <!-- content -->
           <ProductContent :content-data="productItem" :language-mode="languageMode" />
         </div>
       </div>
@@ -73,43 +72,36 @@ const props = defineProps({
     required: true
   }
 })
-const productInfoData = computed(() => {
-  return props.productsData.map((product) => {
-    const { info_zh, info_en, repo_url, web_url, develop_label, ...others } = product
-    const linkUrl = []
-    if (web_url !== '') {
-      const web = { type: 'web', url: web_url }
-      linkUrl.push(web)
-    }
 
-    if (repo_url !== '') {
-      const repo = { type: 'github', url: repo_url }
-      linkUrl.push(repo)
-    }
-    if (props.languageMode === 'en') {
+const productInfoData = computed(() => {
+  return props.productsData
+    .map((product) => {
+      const { pro_id, info_zh, info_en, repo_url, web_url, ...others } = product
+      const linkUrl = []
+      if (web_url !== '') {
+        const web = { type: 'web', url: web_url }
+        linkUrl.push(web)
+      }
+
+      if (repo_url !== '') {
+        const repo = { type: 'github', url: repo_url }
+        linkUrl.push(repo)
+      }
+
+      const info = props.languageMode === 'en' ? info_en : info_zh
+      const isShowDevelopLabel = pro_id !== '001' ? true : false
+      const isShowTask = pro_id === '001' || pro_id === '002' ? true : false
+
       return {
-        title: info_en.website,
-        description: info_en.description,
-        nature: info_en.nature,
-        role: info_en.role,
-        task: info_en.task,
-        develop: develop_label,
+        cardId: pro_id,
+        info,
         linkUrl,
+        isShowTask,
+        isShowDevelopLabel,
         ...others
       }
-    } else if (props.languageMode === 'zh') {
-      return {
-        title: info_en.website,
-        description: info_zh.description,
-        nature: info_zh.nature,
-        role: info_zh.role,
-        task: info_zh.task,
-        develop: develop_label,
-        linkUrl,
-        ...others
-      }
-    }
-  })
+    })
+    .sort((a, b) => b.cardId.localeCompare(a.cardId))
 })
 
 function turnProductImgPath(img) {
