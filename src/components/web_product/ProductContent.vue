@@ -53,13 +53,29 @@
       <li v-for="urlItem in contentData.linkUrl" :key="urlItem" class="col-6">
         <a :href="urlItem.url" target="_blank" class="btn btn-primary content__btn"
           ><i class="bi" :class="turnUrlIcon(urlItem.type)"></i
-          ><span class="mx-2">{{ turnUrlText(languageMode, urlItem.type) }}</span></a
+          ><span class="mx-2" v-if="isMediaMdUp">{{
+            turnUrlText(languageMode, urlItem.type)
+          }}</span></a
         >
       </li>
     </ul>
   </div>
 </template>
 <script setup>
+import { useMediaQuery } from '@vueuse/core'
+
+const isMediaMdUp = useMediaQuery('(min-width: 769px)')
+const contentConfig = {
+  workIcon: {
+    role: 'badge',
+    task: 'build'
+  },
+  productUrlConfig: [
+    { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
+    { type: 'web', icon: 'bi-window-fullscreen', textEn: 'website', textZh: '網站' }
+  ]
+}
+
 defineProps({
   contentData: {
     type: Object,
@@ -70,28 +86,14 @@ defineProps({
     required: true
   }
 })
-const contentConfig = {
-  workIcon: {
-    role: 'badge',
-    task: 'build'
-  },
-  productUrlConfig: [
-    { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
-    { type: 'web', icon: 'bi-window-fullscreen', textEn: 'static website', textZh: '網站' }
-  ],
-  webProductUrl: [
-    { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
-    { type: 'web', icon: 'bi-window-fullscreen', textEn: 'static website', textZh: '網站' }
-  ]
-}
 
 function turnUrlIcon(specifyType) {
-  const specifyItem = contentConfig.webProductUrl.find((item) => item.type === specifyType)
+  const specifyItem = contentConfig.productUrlConfig.find((item) => item.type === specifyType)
   return specifyItem.icon
 }
 
 function turnUrlText(language, specifyType) {
-  const specifyItem = contentConfig.webProductUrl.find((item) => item.type === specifyType)
+  const specifyItem = contentConfig.productUrlConfig.find((item) => item.type === specifyType)
   const text = language === 'en' ? specifyItem.textEn : specifyItem.textZh
   return text
 }
