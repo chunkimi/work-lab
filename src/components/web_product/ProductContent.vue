@@ -9,7 +9,7 @@
     gap: 1rem;
   }
   &__label {
-    margin: 0 0.5rem;
+    margin: 0.5rem;
     padding: 0.25rem 0.7rem;
     font-size: $font-sizes-7;
     font-weight: map-get($font-weight, light);
@@ -32,10 +32,10 @@
   <div class="content__body">
     <div>
       <h5 class="heading-h5 tc-info">{{ contentData.info.website }}</h5>
-      <p class="fz-7 tc-success">{{ contentData.info.nature }}</p>
+      <p class="fz-7 tc-tertiary">{{ contentData.info.nature }}</p>
     </div>
     <p class="fz-fixed-7">{{ contentData.info.description }}</p>
-    <ul class="list-unstyled d-flex" v-if="contentData.isShowDevelopLabel">
+    <ul class="list-unstyled d-flex flex-wrap" v-if="contentData.isShowDevelopLabel">
       <li
         v-for="developItem in contentData.develop_label"
         :key="developItem"
