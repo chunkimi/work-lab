@@ -1,0 +1,54 @@
+// text-color
+@each $color-key, $color-value in $theme-colors {
+  .tc-#{$color-key} {
+    color: $color-value;
+  }
+}
+
+// link
+@each $key, $value in $toggle-colors-plan {
+  .link-#{$key} {
+    color: map-get($theme-colors, $key);
+    &:hover,
+    &:focus,
+    &:active {
+      color: $value;
+    }
+  }
+}
+
+// background-color
+.bg {
+  @each $key, $value in $theme-colors {
+    &-#{$key} {
+      background-color: $value;
+    }
+
+    @each $opacity-key, $opacity-value in $bg-opacity-levels {
+      &-#{$key}-#{$opacity-key} {
+        background-color: rgba(red($value), green($value), blue($value), $opacity-value);
+      }
+    }
+  }
+}
+
+.block-spacing {
+  padding: 5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.list {
+  &-unstyled {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.text-decoration {
+  &-none {
+    text-decoration: none;
+  }
+}

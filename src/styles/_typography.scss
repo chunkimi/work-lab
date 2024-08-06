@@ -1,0 +1,139 @@
+@use 'sass:math';
+
+// heading
+.heading {
+  &-h1 {
+    font-size: map-get($font-sizes, 1);
+    font-weight: map-get($font-weight, light);
+    line-height: map-get($line-height, xs);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 1) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-h2 {
+    font-size: map-get($font-sizes, 2);
+    font-weight: map-get($font-weight, light);
+    line-height: map-get($line-height, xs);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 2) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-h3 {
+    font-size: map-get($font-sizes, 3);
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, sm);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 3) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-h4 {
+    font-size: map-get($font-sizes, 4);
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, sm);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 4) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-h5 {
+    font-size: map-get($font-sizes, 5);
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, sm);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 5) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-h6 {
+    font-size: map-get($font-sizes, 6);
+    font-weight: map-get($font-weight, bold);
+    line-height: map-get($line-height, base);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 6) * $multiplier, 1);
+      }
+    }
+  }
+
+  &-subtitle {
+    font-size: map-get($font-sizes, 7);
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, base);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 7) * $multiplier, 1);
+      }
+    }
+  }
+}
+
+// font-size
+@each $size-key, $size-value in $font-sizes {
+  .fs-#{$size-key} {
+    font-size: $size-value;
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, base);
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div($size-value * $multiplier, 1);
+      }
+    }
+  }
+
+  .fs-fixed-#{$size-key} {
+    font-size: $size-value;
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, base);
+  }
+}
+
+// font-weight
+@each $key, $value in $font-weight {
+  .fw-#{$key} {
+    font-weight: $value;
+  }
+}
+
+// line-height
+@each $key, $value in $line-height {
+  .lh-#{$key} {
+    line-height: $value;
+  }
+}
+
+// text-align
+@each $text-item in $text-align {
+  .text-align-#{$text-item} {
+    text-align: $text-item;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $text-item in $text-align {
+      .text-align-#{$breakpoint}-#{$text-item} {
+        text-align: $text-item;
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "id_type": "product",
+    "pro_id": "001",
+    "info_zh": {
+      "website": "校園生活記憶庫",
+      "description": "博物館藏品經數位化後，利用資料庫檢索與瀏覽功能提升應用性。原始數據從通用資料庫提取，經管理者後台彙整與重新編輯後，提供使用者瀏覽與查詢。",
+      "nature": "公司內外部合作開發的正式產品",
+      "role": "內容企劃、日常營運",
+      "task": "規劃實物數位化流程與資料庫功能、Metadata欄位與著錄內容的撰寫規則，與後續應用推廣企劃"
+    },
+    "info_en": {
+      "website": "School Life Memoirs",
+      "description": "After turning museum collections into digital metadata, it’s easier to search and browse using the database. The data is from a general database, organized and edited by the manager, and then available for users to browse and search.",
+      "nature": "Official product developed through internal and external collaboration",
+      "role": "Content Planning, Daily Operations",
+      "task": "Planning the digitization of physical collections, setting rules for metadata and catalog content, and promoting the application."
+    },
+    "web_url": "https://school.nmth.gov.tw/",
+    "develop_label": [],
+    "repo_url": "",
+    "img": "nmth-school"
+  },
+  {
+    "id_type": "product",
+    "pro_id": "002",
+    "info_zh": {
+      "website": "Simple Twitter",
+      "description": "具有基礎功能的模擬社交平台，採用前後端分離的團隊開發方式，專案主要功能包括會員註冊、追蹤評論、修改個人資料等CRUD操作，以及管理者帳號管理。此專案為達成進修課程結業要求的產品開發實作練習。",
+      "nature": "前後端分離的團隊開發",
+      "role": "前端、PM",
+      "task": "前端開發、進度管理、驗收標準清單及demo會議紀錄撰寫"
+    },
+    "info_en": {
+      "website": "Simple Twitter",
+      "description": "A basic social platform with user registration, CRUD operations (such as following and commenting), and admin management. Developed with front-end/back-end separation, this project meets course completion requirements.",
+      "nature": "Team development with front-end and back-end separation",
+      "role": "Front-end Developer, Project Manager",
+      "task": "Front-end development, progress management, acceptance criteria list, and demo meeting documentation."
+    },
+    "develop_label": ["JavaScript", "React.js"],
+    "web_url": "",
+    "repo_url": "https://github.com/chunkimi/simple_twitter_frontend",
+    "img": "simple-twitter"
+  },
+
+  {
+    "id_type": "product",
+    "pro_id": "003",
+    "info_zh": {
+      "website": "2020臺灣總統大選情報站",
+      "description": "選票查詢與分析平台，利用中選會的真實選票數據和模擬候選人，通過多種圖表和視角深入分析選票。",
+      "nature": "團隊協作",
+      "role": "前端、企劃",
+      "task": "前端、內容企劃、wireframe"
+    },
+    "info_en": {
+      "website": "2020 Taiwan Presidential Election Election Hub",
+      "description": "This voting query and analysis platform uses real voting data from the government and simulated candidates, giving detailed analysis through different charts and views.",
+      "nature": "Team Collaboration Side Project",
+      "role": "Front-end Developer, Planner",
+      "task": "Front-end Development, Wireframe, Content Planning "
+    },
+
+    "develop_label": ["vue 3", "vite", "d3.js", "chart.js", "bootstrap 5", "firebase"],
+    "web_url": "https://chunkimi.github.io/vote-inquiry/#/",
+    "repo_url": "https://github.com/chunkimi/vote-inquiry",
+    "img": "vote-inquiry"
+  },
+  {
+    "id_type": "product",
+    "pro_id": "004",
+    "info_zh": {
+      "website": "郊友趣",
+      "description": "以自然步道為主題，整合政府開放數據和會員CRUD功能，提供多樣檢索與瀏覽，藉由JSON格式轉換實現收藏、評價，以及個人化分析圖表。",
+      "nature": "個人作品",
+      "role": "前端、企劃",
+      "task": "前端、內容企劃、wireframe"
+    },
+    "info_en": {
+      "website": "Hiking Friends",
+      "description": "This platform is about nature trails. It uses government data and provides member CRUD functionality. You can search and browse in many ways. It also helps registered members save, rate, review, and view personal charts through JSON format conversion.",
+      "nature": "Personal Side Project",
+      "role": "Front-end Developer, Planner",
+      "task": "Front-end Development,Wireframe, Content Planning "
+    },
+
+    "develop_label": ["vue 3", "vite", "chart.js", "bootstrap 5"],
+    "web_url": "https://chunkimi.github.io/hiking-friends/#/",
+    "repo_url": "https://github.com/chunkimi/hiking-friends",
+    "img": "hiking-friends"
+  }
+]

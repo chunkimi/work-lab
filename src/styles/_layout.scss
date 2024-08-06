@@ -1,0 +1,165 @@
+@use 'sass:math';
+
+// grid
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $gutter-half;
+  @each $breakpoint, $width in $media-container-width {
+    @include media-breakpoint($breakpoint) {
+      max-width: $width;
+    }
+  }
+}
+
+.row {
+  margin-left: -$gutter-half;
+  margin-right: -$gutter-half;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%col {
+  position: relative;
+  padding: 0px $gutter-half;
+}
+
+@for $i from 1 through $grid-num {
+  .col-#{$i} {
+    @extend %col;
+    max-width: calc(100% * #{math.div($i, $grid-num)});
+    flex: 0 0 calc(100% * #{math.div($i, $grid-num)});
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @for $i from 1 through $grid-num {
+    .col-#{$breakpoint}-#{$i} {
+      @include media-breakpoint($breakpoint) {
+        max-width: calc(100% * #{math.div($i, $grid-num)});
+        flex: 0 0 calc(100% * #{math.div($i, $grid-num)});
+      }
+    }
+  }
+}
+
+// margin ane padding
+@function get-direction-styles($direction-key, $direction-value, $type-value, $spacer-value) {
+  @if $direction-key == a {
+    @return (#{$type-value}: $spacer-value);
+  }
+  @if $direction-key == x {
+    @return (#{$type-value}-left: $spacer-value, #{$type-value}-right: $spacer-value);
+  } @else if $direction-key == y {
+    @return (#{$type-value}-top: $spacer-value, #{$type-value}-bottom: $spacer-value);
+  } @else {
+    @return (#{$type-value}-#{$direction-value}: $spacer-value);
+  }
+}
+
+@each $type-key, $type-value in $spacing-type {
+  @each $direction-key, $direction-value in $space-direction {
+    @each $spacer-key, $spacer-value in $spacers {
+      .#{$type-key}#{$direction-key}-#{$spacer-key} {
+        @each $property,
+          $value
+            in get-direction-styles($direction-key, $direction-value, $type-value, $spacer-value)
+        {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint-key, $breakpoint-value in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint-key) {
+    @each $type-key, $type-value in $spacing-type {
+      @each $direction-key, $direction-value in $space-direction {
+        @each $spacer-key, $spacer-value in $spacers {
+          .#{$type-key}#{$direction-key}-#{$breakpoint-key}-#{$spacer-key} {
+            @each $property,
+              $value
+                in get-direction-styles(
+                  $direction-key,
+                  $direction-value,
+                  $type-value,
+                  $spacer-value
+                )
+            {
+              #{$property}: #{$value};
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// flex
+
+@each $display-key, $display-value in $display-type {
+  .d-#{$display-key} {
+    display: $display-value;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $display-key, $display-value in $display-type {
+      .d-#{$breakpoint}-#{$display-key} {
+        display: $display-value;
+      }
+    }
+  }
+}
+
+// direction
+@each $direction-key, $direction-value in $flex-direction {
+  .flex-#{$direction-key} {
+    flex-direction: $direction-value;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $direction-key, $direction-value in $flex-direction {
+      .flex-#{$breakpoint}-#{$direction-key} {
+        flex-direction: $direction-value;
+      }
+    }
+  }
+}
+
+// justify-content
+@each $justify-content-key, $justify-content-value in $justify-content {
+  .justify-content-#{$justify-content-key} {
+    justify-content: $justify-content-value;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $justify-content-key, $justify-content-value in $justify-content {
+      .justify-content-#{$breakpoint}-#{$justify-content-key} {
+        justify-content: $justify-content-value;
+      }
+    }
+  }
+}
+
+@each $align-items-key, $align-items-value in $align-items {
+  .align-items-#{$align-items-key} {
+    align-items: $align-items-value;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $align-items-key, $align-items-value in $align-items {
+      .align-items-#{$breakpoint}-#{$align-items-key} {
+        align-items: $align-items-value;
+      }
+    }
+  }
+}
