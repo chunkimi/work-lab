@@ -8,13 +8,6 @@
     margin-bottom: 1.25rem;
     border-bottom: 1px solid $auxiliary;
   }
-  &__label {
-    margin: 0 0.5rem;
-    padding: 0.25rem 0.7rem;
-    font-size: $font-sizes-7;
-    font-weight: map-get($font-weight, light);
-    border-radius: 28px;
-  }
   &__link {
     display: flex;
     align-items: center;
@@ -23,14 +16,14 @@
 }
 </style>
 <template>
-  <div class="container py-20">
+  <div class="container">
     <h1 class="fs-fixed-7 tc-info mb-5">{{ profileConfig.title }}</h1>
     <h2 class="heading-h2 mb-5 tc-warning ff-particular">
       {{ profileData.name }}
     </h2>
     <div class="fs-fixed-6 mb-5 fw-light" v-html="formattedIntro"></div>
     <ul class="list-unstyled profile__list">
-      <li v-for="skillItem in allSkills" :key="skillItem" class="bg-tertiary-50 profile__label">
+      <li v-for="skillItem in allSkills" :key="skillItem" class="tag bg-tertiary-50 tc-dark">
         {{ skillItem }}
       </li>
     </ul>
