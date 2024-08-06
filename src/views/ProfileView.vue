@@ -16,7 +16,7 @@
 }
 </style>
 <template>
-  <div class="container py-20">
+  <div class="container">
     <h1 class="fs-fixed-7 tc-info mb-5">{{ profileConfig.title }}</h1>
     <h2 class="heading-h2 mb-5 tc-warning ff-particular">
       {{ profileData.name }}

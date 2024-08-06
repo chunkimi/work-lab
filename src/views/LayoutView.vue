@@ -18,6 +18,7 @@
   &__main {
     position: relative;
     flex: 1;
+    padding: 10rem 0rem;
     &::before,
     &::after {
       content: '';
