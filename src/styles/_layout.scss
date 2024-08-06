@@ -132,6 +132,23 @@
   }
 }
 
+// wrap
+@each $wrap-key, $wrap-value in $flex-wrap {
+  .flex-#{$wrap-key} {
+    flex-wrap: $wrap-value;
+  }
+}
+
+@each $breakpoint, $width in $media-breakpoints-width {
+  @include media-breakpoint($breakpoint) {
+    @each $wrap-key, $wrap-value in $flex-wrap {
+      .flex-#{$breakpoint}-#{$wrap-key} {
+        flex-wrap: $wrap-value;
+      }
+    }
+  }
+}
+
 // justify-content
 @each $justify-content-key, $justify-content-value in $justify-content {
   .justify-content-#{$justify-content-key} {

@@ -66,3 +66,11 @@
     }
   }
 }
+
+.tag {
+  margin: 0.5rem;
+  padding: 0.25rem 0.7rem;
+  font-size: $font-sizes-7;
+  font-weight: map-get($font-weight, light);
+  border-radius: 28px;
+}

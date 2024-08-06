@@ -110,19 +110,6 @@ $line-height: (
   lg: 2
 );
 
-$letter-spacing: (
-  1: -1.5em,
-  2: -0.5em,
-  3: 0em,
-  4: 0.1em,
-  5: 0.15em,
-  6: 0.25em,
-  7: 0.4em,
-  8: 0.5em,
-  9: 1.25em,
-  10: 1.5em
-);
-
 $text-align: (start, end, left, right, center, justify);
 
 /* spacing */
@@ -180,6 +167,12 @@ $flex-direction: (
   row-reverse: row-reverse,
   column: column,
   column-reverse: column-reverse
+);
+
+$flex-wrap: (
+  nowrap: nowrap,
+  wrap: wrap,
+  reverse: wrap-reverse
 );
 
 $justify-content: (
