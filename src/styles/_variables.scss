@@ -10,29 +10,31 @@ $media-breakpoints-width: (
 
 /* color */
 $primary: #ffd06b;
-$secondary: #8cd9f3;
-$tertiary: #ed7ab0;
+$secondary: #bbe7fe;
+$tertiary: #e7a4b3;
 $quaternary: #8ecfbd;
-$auxiliary: #b0b0b0;
 $info: #306aa7;
-$success: #03bd70;
+$success: #30a6a7;
 $warning: #f8aa1f;
 $danger: #fa5c66;
 $light: #ffffff;
 $dark: #2f2f2f;
+$auxiliary: #b0b0b0;
+$support: #a76d30;
 
 $theme-colors: (
   primary: $primary,
   secondary: $secondary,
   tertiary: $tertiary,
   quaternary: $quaternary,
-  auxiliary: $auxiliary,
   info: $info,
   success: $success,
   warning: $warning,
   danger: $danger,
   light: $light,
-  dark: $dark
+  dark: $dark,
+  auxiliary: $auxiliary,
+  support: $support
 );
 
 $toggle-colors-plan: (
@@ -40,13 +42,14 @@ $toggle-colors-plan: (
   secondary: $info,
   tertiary: $danger,
   quaternary: $success,
-  auxiliary: $dark,
   info: $secondary,
   success: $quaternary,
   warning: $primary,
   danger: $tertiary,
   light: $dark,
-  dark: $light
+  dark: $light,
+  auxiliary: $support,
+  support: $auxiliary
 );
 
 $light-color-system: (primary, secondary, tertiary, quaternary, auxiliary, light);

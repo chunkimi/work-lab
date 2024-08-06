@@ -10,9 +10,10 @@
   }
   &__label {
     margin: 0 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: $font-sizes-8;
-    border-radius: 32px;
+    padding: 0.25rem 0.7rem;
+    font-size: $font-sizes-7;
+    font-weight: map-get($font-weight, light);
+    border-radius: 28px;
     color: $dark;
     background-color: $secondary;
   }
@@ -31,7 +32,7 @@
   <div class="content__body">
     <div>
       <h5 class="heading-h5 tc-info">{{ contentData.info.website }}</h5>
-      <p class="fz-7 tc-tertiary">{{ contentData.info.nature }}</p>
+      <p class="fz-7 tc-success">{{ contentData.info.nature }}</p>
     </div>
     <p class="fz-fixed-7">{{ contentData.info.description }}</p>
     <ul class="list-unstyled d-flex" v-if="contentData.isShowDevelopLabel">

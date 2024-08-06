@@ -9,9 +9,11 @@
     border-bottom: 1px solid $auxiliary;
   }
   &__label {
-    font-size: $font-sizes-8;
-    padding: 0.5rem 0.75rem;
-    border-radius: 30px;
+    margin: 0 0.5rem;
+    padding: 0.25rem 0.7rem;
+    font-size: $font-sizes-7;
+    font-weight: map-get($font-weight, light);
+    border-radius: 28px;
   }
   &__link {
     display: flex;
@@ -28,11 +30,7 @@
     </h2>
     <div class="fs-fixed-6 mb-5 fw-light" v-html="formattedIntro"></div>
     <ul class="list-unstyled profile__list">
-      <li
-        v-for="skillItem in allSkills"
-        :key="skillItem"
-        class="bg-auxiliary-50 profile__label ma-2"
-      >
+      <li v-for="skillItem in allSkills" :key="skillItem" class="bg-tertiary-50 profile__label">
         {{ skillItem }}
       </li>
     </ul>
