@@ -35,7 +35,7 @@
     }
     @include media-breakpoint(lg) {
       display: grid;
-      grid-template-columns: 3.5fr 5fr;
+      grid-template-columns: 2fr 3fr;
     }
   }
 }
