@@ -1,3 +1,5 @@
+@import '_helpers';
+
 // text-color
 @each $color-key, $color-value in $theme-colors {
   .tc-#{$color-key} {
