@@ -8,15 +8,6 @@
     justify-content: center;
     gap: 1rem;
   }
-  &__label {
-    margin: 0.5rem;
-    padding: 0.25rem 0.7rem;
-    font-size: $font-sizes-7;
-    font-weight: map-get($font-weight, light);
-    border-radius: 28px;
-    color: $dark;
-    background-color: $secondary;
-  }
   &__btn {
     width: 100%;
   }
@@ -39,7 +30,7 @@
       <li
         v-for="developItem in contentData.develop_label"
         :key="developItem"
-        class="content__label"
+        class="tag bg-secondary tc-dark"
       >
         {{ developItem }}
       </li>
