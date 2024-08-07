@@ -1,35 +1,9 @@
 <style lang="scss" scoped>
 @import '@/styles/main.scss';
+
 .resume {
   &__wrap {
     position: relative;
-    flex: 1;
-    &::before,
-    &::after {
-      content: '';
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    &::before {
-      width: 480px;
-      height: 480px;
-      background-color: rgba(red($primary), green($primary), blue($primary), 0.25);
-      transform: translate(50%, -50%);
-      top: 0;
-      right: 0;
-    }
-
-    &::after {
-      width: 240px;
-      height: 240px;
-      background-color: $primary;
-      bottom: 0;
-      left: 0;
-      transform: translate(-50%, 50%);
-    }
   }
   &__header {
     width: 100%;
@@ -70,8 +44,35 @@
       }
     }
   }
+  &__main {
+    background-image: url('@/assets/bg/wave-top.svg'), url('@/assets/bg/wave-bottom.svg');
+    background-position:
+      50% 5%,
+      bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-attachment: fixed, fixed;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    @include media-breakpoint(md) {
+      background-position: top, bottom;
+    }
+    @include media-breakpoint(xl) {
+      background-position:
+        50% -10%,
+        50% 110%;
+    }
+  }
+}
+
+.text-section {
+  height: 320px;
+  background: $info;
+  opacity: 0.75;
+  color: $light;
 }
 </style>
+
 <template>
   <div class="resume__wrap">
     <header class="resume__header">
@@ -100,23 +101,53 @@
         </nav>
       </div>
     </header>
-    <div class="container">
-      <h1>This is My Resume</h1>
-      <div class="block-spacing">
-        <!-- Self-introduction -->
-        <!-- Web Product Development -->
-        <!-- Project Achievements -->
-        <!-- Work Experience -->
-        <!-- Educational Background -->
+    <main class="resume__main">
+      <div class="container">
+        <h1>This is My Resume</h1>
+        <div class="block-spacing">
+          <div class="text-section">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
+              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
+              commodi harum maiores repudiandae cumque voluptatem sint.
+            </p>
+          </div>
+          <div class="text-section">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
+              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
+              commodi harum maiores repudiandae cumque voluptatem sint.
+            </p>
+          </div>
+          <div class="text-section">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
+              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
+              commodi harum maiores repudiandae cumque voluptatem sint.
+            </p>
+          </div>
+          <div class="text-section">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
+              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
+              commodi harum maiores repudiandae cumque voluptatem sint.
+            </p>
+          </div>
+          <!-- Self-introduction -->
+          <!-- Web Product Development -->
+          <!-- Project Achievements -->
+          <!-- Work Experience -->
+          <!-- Educational Background -->
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 <script setup>
 import { useMediaQuery } from '@vueuse/core'
 const isMediaLgUp = useMediaQuery('(min-width: 991px)')
 const resumeConfig = {
-  title: "Kimi's Resume",
+  title: 'My Resume',
   menuIcon: 'menu',
   navLink: [
     {
