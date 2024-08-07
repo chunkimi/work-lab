@@ -8,13 +8,15 @@
     justify-content: space-between;
     position: relative;
   }
+
   &__header {
     width: 100%;
     background: $info;
     position: fixed;
     z-index: 999;
-    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
+
   &__main {
     position: relative;
     flex: 1;
@@ -65,15 +67,11 @@
     &__link {
       text-decoration: none;
       color: $primary;
-      &:hover,
-      &:focus,
-      &:active {
-        color: $info;
-      }
     }
     &__item {
       &:hover,
-      &:focus {
+      &:focus,
+      &:active {
         background-color: $primary;
         .layout__nav__link {
           color: $info;
