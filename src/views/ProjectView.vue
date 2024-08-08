@@ -69,7 +69,7 @@
   <div class="container">
     <h1 class="heading-h3 text-align-end tc-warning">{{ projectConfig.pageTitle }}</h1>
     <div class="block-spacing">
-      <HorizCard
+      <HorizProductCard
         :language-mode="projectConfig.infoLanguageMode"
         :products-data="productDevelopData"
       />
@@ -77,7 +77,7 @@
   </div>
 </template>
 <script setup>
-import HorizCard from '@/components/web_product/HorizCard.vue'
+import HorizProductCard from '@/components/web_product/HorizProductCard.vue'
 import productDevelopData from '@/data/web_product_develop.json'
 
 const projectConfig = {
