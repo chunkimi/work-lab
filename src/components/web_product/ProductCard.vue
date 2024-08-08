@@ -1,7 +1,17 @@
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/styles/main.scss';
-
-.horiz-card {
+.prod-card {
+  &__item {
+    display: flex;
+    display: grid;
+    flex-direction: column;
+    border: 1px solid $auxiliary;
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.175);
+    }
+  }
   &__img {
     width: 100%;
     height: 100%;
@@ -9,48 +19,29 @@
     max-height: 600px;
     object-fit: cover;
     object-position: center center;
-    border-radius: 10px 10px 0 0;
-    @include media-breakpoint(lg) {
-      border-radius: 10px 0 0 10px;
-    }
+    border-radius: 12px 12px 0 0;
   }
-
   &__body {
     padding: 1.25rem 0.75rem;
     background-color: $light;
-    border-radius: 10px;
-    @include media-breakpoint(lg) {
-      padding: 1.25rem 1.5rem;
-    }
-  }
-  &__item {
-    display: grid;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    border: 1px solid $auxiliary;
-    border-radius: 10px;
-    transition: box-shadow 0.3s ease;
-    &:hover {
-      box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.175);
-    }
-    @include media-breakpoint(lg) {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-    }
+    border-radius: 0px 0px 12px 12px;
   }
 }
 </style>
-
 <template>
   <ul class="list-unstyled row">
-    <li class="col-12" v-for="productItem in productInfoData" :key="productItem.cardId">
-      <div class="horiz-card__item">
+    <li
+      class="col-12 col-lg-6 mb-6"
+      v-for="productItem in productInfoData"
+      :key="productItem.cardId"
+    >
+      <div class="prod-card__item">
         <img
           :src="getImage(turnProductImgPath(productItem.img))"
           alt="product-img"
-          class="horiz-card__img"
+          class="prod-card__img"
         />
-        <div class="horiz-card__body">
+        <div class="prod-card__body">
           <ProductContent :content-data="productItem" :language-mode="languageMode" />
         </div>
       </div>
@@ -74,6 +65,7 @@ const props = defineProps({
 })
 
 const productInfoData = computed(() => {
+  console.log('props.languageMode', props.languageMode)
   return props.productsData
     .map((product) => {
       const { pro_id, info_zh, info_en, repo_url, web_url, ...others } = product
@@ -88,9 +80,9 @@ const productInfoData = computed(() => {
         linkUrl.push(repo)
       }
 
-      const info = props.languageMode === 'en' ? info_en : info_zh
+      const info = props.languageMode === 'zh' ? info_zh : info_en
       const isShowDevelopLabel = pro_id !== '001' ? true : false
-      const isShowTask = pro_id === '001' || pro_id === '002' ? true : false
+      const isShowTask = true
 
       return {
         cardId: pro_id,

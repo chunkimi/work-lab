@@ -66,13 +66,12 @@
         50% 110%;
     }
   }
-}
-
-.test-section {
-  height: 320px;
-  background: $info;
-  opacity: 0.75;
-  color: $light;
+  &__section {
+    padding-top: $header-nav-height;
+    background: $secondary;
+    opacity: 0.75;
+    color: $dark;
+  }
 }
 </style>
 
@@ -101,7 +100,7 @@
               v-for="linkItem in resumeConfig.navLink"
               :key="linkItem.title"
             >
-              <p class="resume__nav__link navbar__link" @click="handleNavClick(linkItem.path)">
+              <p class="resume__nav__link navbar__link" @click="handleNavClick(linkItem.sectionID)">
                 {{ linkItem.title }}
               </p>
             </li>
@@ -112,9 +111,11 @@
     <main class="resume__main">
       <div class="container">
         <h1>This is My Resume</h1>
-        <div class="block-spacing">
-          <!-- Self-introduction -->
-          <div class="test-section" id="intro">
+      </div>
+      <div class="block-spacing">
+        <!-- Self-introduction -->
+        <div class="resume__section" id="intro">
+          <div class="container">
             <h3 class="fs-3 tc-warning">Self-introduction</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
@@ -122,17 +123,14 @@
               commodi harum maiores repudiandae cumque voluptatem sint.
             </p>
           </div>
-          <!-- Web Product Development -->
-          <div class="test-section" id="web-prod-dev">
-            <h3 class="fs-3 tc-warning">Web Product Development</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
-              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
-              commodi harum maiores repudiandae cumque voluptatem sint.
-            </p>
-          </div>
-          <!-- Awards -->
-          <div class="test-section" id="awards">
+        </div>
+        <!-- Web Product Development -->
+        <div class="resume__section" id="web-prod-dev">
+          <WebProdDev />
+        </div>
+        <!-- Awards -->
+        <div class="resume__section" id="awards">
+          <div class="container">
             <h3 class="fs-3 tc-warning">Awards</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
@@ -140,8 +138,10 @@
               commodi harum maiores repudiandae cumque voluptatem sint.
             </p>
           </div>
-          <!--  Work Project -->
-          <div class="test-section" id="work-proj">
+        </div>
+        <!--  Work Project -->
+        <div class="resume__section" id="work-proj">
+          <div class="container">
             <h3 class="fs-3 tc-warning">Work Project</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
@@ -149,8 +149,10 @@
               commodi harum maiores repudiandae cumque voluptatem sint.
             </p>
           </div>
-          <!-- Work Experience -->
-          <div class="test-section" id="work-exp">
+        </div>
+        <!-- Work Experience -->
+        <div class="resume__section" id="work-exp">
+          <div class="container">
             <h3 class="fs-3 tc-warning">Work Experience</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
@@ -158,8 +160,10 @@
               commodi harum maiores repudiandae cumque voluptatem sint.
             </p>
           </div>
-          <!-- Educational Background -->
-          <div class="test-section" id="edu">
+        </div>
+        <!-- Educational Background -->
+        <div class="resume__section" id="edu">
+          <div class="container">
             <h3 class="fs-3 tc-warning">Educational Background</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
@@ -175,44 +179,24 @@
 <script setup>
 import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
+import { resumeNavMenu } from '@/utils/resumeUtils.js'
+import WebProdDev from '@/components/resume/WebProdDev.vue'
+
 const isMediaLgUp = useMediaQuery('(min-width: 991px)')
+
 const resumeConfig = {
   title: 'My Resume',
   menuIcon: 'menu',
-  navLink: [
-    {
-      title: '關於',
-      path: '#intro'
-    },
-    {
-      title: '開發經驗',
-      path: '#web-prod-dev'
-    },
-    {
-      title: '獲獎',
-      path: '#awards'
-    },
-    {
-      title: '專案成果',
-      path: '#work-proj'
-    },
-    {
-      title: '工作經歷',
-      path: '#work-exp'
-    },
-    {
-      title: '教育背景',
-      path: '#edu'
-    }
-  ]
+  navLink: resumeNavMenu
 }
 
 const resumeNavToggle = ref(null)
 
-function handleNavClick(path) {
-  const section = document.querySelector(path)
+function handleNavClick(sectionID) {
+  const section = document.querySelector(sectionID)
+
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
     closeNavCollapse()
   }
 }
