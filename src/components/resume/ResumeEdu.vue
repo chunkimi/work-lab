@@ -26,9 +26,6 @@
     }
   }
 }
-.w-100 {
-  width: 100%;
-}
 </style>
 <template>
   <div class="container">
@@ -37,41 +34,11 @@
       <div class="row">
         <div class="col-12 col-lg-6" :class="isMediaLgDown ? 'mb-6' : ''">
           <h3 class="edu__title">{{ eduConfig.academic.title }}</h3>
-          <ul class="list-unstyled">
-            <li
-              v-for="(academicItem, index) in academicData"
-              :key="academicItem.id"
-              class="edu__item"
-              :class="index !== 0 ? 'mt-2' : ''"
-            >
-              <p class="edu__item__main">
-                <span class="material-symbols-outlined">
-                  {{ academicItem.icon }}
-                </span>
-                <span class="ms-1">{{ academicItem.main }}</span>
-              </p>
-              <p class="edu__item__vice">{{ academicItem.exp }}</p>
-            </li>
-          </ul>
+          <EduList :edu-data-arr="academicData" />
         </div>
         <div class="col-12 col-lg-6">
           <h3 class="edu__title">{{ eduConfig.training.title }}</h3>
-          <ul class="list-unstyled">
-            <li
-              v-for="(trainingItem, index) in trainingData"
-              :key="trainingItem.id"
-              class="edu__item"
-              :class="index !== 0 ? 'mt-2' : ''"
-            >
-              <p class="edu__item__main">
-                <span class="material-symbols-outlined">
-                  {{ trainingItem.icon }}
-                </span>
-                <span class="ms-1">{{ trainingItem.main }}</span>
-              </p>
-              <p class="edu__item__vice">{{ trainingItem.exp }}</p>
-            </li>
-          </ul>
+          <EduList :edu-data-arr="trainingData" />
         </div>
       </div>
     </div>
@@ -82,6 +49,7 @@ import { computed } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import { resumeNavMenu } from '@/utils/resumeUtils.js'
 import qualData from '@/data/qualification.json'
+import EduList from '@/components/resume/block/EduList.vue'
 
 const eduConfig = {
   sectionTitle: resumeNavMenu.find((item) => item.sectionID === 'edu').title,
