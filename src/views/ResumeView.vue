@@ -150,15 +150,8 @@
           </div>
         </div>
         <!-- Educational Background -->
-        <div class="resume__section bg-secondary-50" id="edu">
-          <div class="container">
-            <h3 class="fs-3 color-warning">Educational Background</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
-              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
-              commodi harum maiores repudiandae cumque voluptatem sint.
-            </p>
-          </div>
+        <div class="resume__section" id="edu">
+          <ResumeEdu />
         </div>
       </div>
     </main>
@@ -170,6 +163,7 @@ import { useMediaQuery } from '@vueuse/core'
 import { resumeNavMenu } from '@/utils/resumeUtils.js'
 import WebProdDev from '@/components/resume/WebProdDev.vue'
 import ResumeAwards from '@/components/resume/ResumeAwards.vue'
+import ResumeEdu from '@/components/resume/ResumeEdu.vue'
 
 const isMediaLgUp = useMediaQuery('(min-width: 991px)')
 
