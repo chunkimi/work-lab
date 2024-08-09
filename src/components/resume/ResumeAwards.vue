@@ -9,7 +9,7 @@
           class="d-flex align-items-center"
           :class="index !== 0 ? 'mt-2' : ''"
         >
-          <p class="tag d-flex align-items-center bg-quaternary-25 color-dark">
+          <p class="tag d-flex align-items-center bg-quaternary-50 color-dark">
             <span class="material-symbols-outlined"> {{ awardItem.typeIcon }}</span>
             <span class="ms-2" v-if="isMediaMdUp">{{ awardItem.typeText }}</span>
           </p>
