@@ -102,7 +102,7 @@ const productInfoData = computed(() => {
         ...others
       }
     })
-    .sort((a, b) => b.cardId.localeCompare(a.cardId))
+    .sort((a, b) => b.cardId.localeCompare(a.cardId, undefined, { numeric: true }))
 })
 
 function turnProductImgPath(img) {

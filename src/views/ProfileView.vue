@@ -36,7 +36,7 @@
     </ul>
     <div class="p-4 d-flex flex-row-reverse">
       <RouterLink :to="profileConfig.projectLink.to" class="fs-fixed-6 link-info profile__link">
-        <span class="me-1">{{ profileConfig.projectLink.text }}</span>
+        <span class="me-2">{{ profileConfig.projectLink.text }}</span>
         <span class="material-symbols-outlined"> directions_run </span>
       </RouterLink>
     </div>

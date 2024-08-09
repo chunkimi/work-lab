@@ -3,9 +3,8 @@
 .prod-card {
   &__item {
     height: 100%;
-    display: flex;
     display: grid;
-    flex-direction: column;
+    grid-template-rows: auto 1fr;
     border: 1px solid $auxiliary;
     border-radius: 12px;
     transition: box-shadow 0.3s ease;
@@ -17,13 +16,15 @@
     width: 100%;
     height: 100%;
     min-height: 240px;
-    max-height: 600px;
+    max-height: 400px;
+    grid-row: 1;
     object-fit: cover;
     object-position: center center;
     border-radius: 12px 12px 0 0;
   }
   &__body {
     padding: 1.25rem 0.75rem;
+    grid-row: 2;
     background-color: $light;
     border-radius: 0px 0px 12px 12px;
   }
@@ -93,7 +94,7 @@ const productInfoData = computed(() => {
         ...others
       }
     })
-    .sort((a, b) => b.cardId.localeCompare(a.cardId))
+    .sort((a, b) => b.cardId.localeCompare(a.cardId, undefined, { numeric: true }))
 })
 
 function turnProductImgPath(img) {

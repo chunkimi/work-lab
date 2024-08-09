@@ -62,7 +62,15 @@
       "task": "Front-end Development, Wireframe, Content Planning "
     },
 
-    "develop_label": ["Vue.js 3", "VITE", "d3.js", "chart.js", "Bootstrap 5", "firebase"],
+    "develop_label": [
+      "JavaScript",
+      "Vue.js 3",
+      "VITE",
+      "d3.js",
+      "chart.js",
+      "Bootstrap 5",
+      "firebase"
+    ],
     "web_url": "https://chunkimi.github.io/vote-inquiry/#/",
     "repo_url": "https://github.com/chunkimi/vote-inquiry",
     "img": "vote-inquiry"
@@ -85,7 +93,7 @@
       "task": "Front-end Development,Wireframe, Content Planning "
     },
 
-    "develop_label": ["Vue.js 3", "VITE", "chart.js", "Bootstrap 5", "SCSS"],
+    "develop_label": ["JavaScript", "Vue.js 3", "VITE", "chart.js", "Bootstrap 5", "SCSS"],
     "web_url": "https://chunkimi.github.io/hiking-friends/#/",
     "repo_url": "https://github.com/chunkimi/hiking-friends",
     "img": "hiking-friends"
