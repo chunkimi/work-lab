@@ -92,12 +92,12 @@
 <template>
   <div class="gate__wrap bg-info">
     <div class="gate__container">
-      <h1 class="tc-primary ff-particular">
+      <h1 class="color-primary ff-particular">
         <span class="heading-h1">{{ labInfo.holders }}</span>
         <br />
         <span class="heading-h2">{{ labInfo.platform }}</span>
       </h1>
-      <p class="fs-fixed-7 tc-auxiliary my-5">{{ labInfo.intro }}</p>
+      <p class="fs-fixed-7 color-auxiliary my-5">{{ labInfo.intro }}</p>
       <div class="d-flex justify-content-center">
         <RouterLink
           type="button"

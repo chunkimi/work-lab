@@ -52,27 +52,27 @@
       <div v-for="color in themeColors" :key="color.key" class="theme-color-section">
         <h4 class="theme-color-title">{{ color.text }}</h4>
         <div class="mb-5">
-          <div :class="`bg-${color.key}`" class="color-swatch tc-light">
+          <div :class="`bg-${color.key}`" class="color-swatch color-light">
             <span>100%</span>
           </div>
           <div
             v-for="opacity in opacityLevels"
             :key="opacity"
             :class="`bg-${color.key}-${opacity}`"
-            class="color-swatch tc-light"
+            class="color-swatch color-light"
           >
             <span>{{ opacity }}%</span>
           </div>
         </div>
         <div>
-          <div :class="`bg-${color.key}`" class="color-swatch tc-dark">
+          <div :class="`bg-${color.key}`" class="color-swatch color-dark">
             <span>100%</span>
           </div>
           <div
             v-for="opacity in opacityLevels"
             :key="opacity"
             :class="`bg-${color.key}-${opacity}`"
-            class="color-swatch tc-dark"
+            class="color-swatch color-dark"
           >
             <span>{{ opacity }}%</span>
           </div>

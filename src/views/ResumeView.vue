@@ -68,9 +68,6 @@
   }
   &__section {
     padding-top: $header-nav-height;
-    background: $secondary;
-    opacity: 0.75;
-    color: $dark;
   }
 }
 </style>
@@ -114,9 +111,9 @@
       </div>
       <div class="block-spacing">
         <!-- Self-introduction -->
-        <div class="resume__section" id="intro">
+        <div class="resume__section bg-secondary-50" id="intro">
           <div class="container">
-            <h3 class="fs-3 tc-warning">Self-introduction</h3>
+            <h3 class="fs-3 color-warning">Self-introduction</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
               ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
@@ -124,25 +121,16 @@
             </p>
           </div>
         </div>
-        <!-- Web Product Development -->
         <div class="resume__section" id="web-prod-dev">
           <WebProdDev />
         </div>
-        <!-- Awards -->
         <div class="resume__section" id="awards">
-          <div class="container">
-            <h3 class="fs-3 tc-warning">Awards</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
-              ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
-              commodi harum maiores repudiandae cumque voluptatem sint.
-            </p>
-          </div>
+          <ResumeAwards />
         </div>
         <!--  Work Project -->
-        <div class="resume__section" id="work-proj">
+        <div class="resume__section bg-secondary-50" id="work-proj">
           <div class="container">
-            <h3 class="fs-3 tc-warning">Work Project</h3>
+            <h3 class="fs-3 color-warning">Work Project</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
               ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
@@ -151,9 +139,9 @@
           </div>
         </div>
         <!-- Work Experience -->
-        <div class="resume__section" id="work-exp">
+        <div class="resume__section bg-secondary-50" id="work-exp">
           <div class="container">
-            <h3 class="fs-3 tc-warning">Work Experience</h3>
+            <h3 class="fs-3 color-warning">Work Experience</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
               ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
@@ -162,9 +150,9 @@
           </div>
         </div>
         <!-- Educational Background -->
-        <div class="resume__section" id="edu">
+        <div class="resume__section bg-secondary-50" id="edu">
           <div class="container">
-            <h3 class="fs-3 tc-warning">Educational Background</h3>
+            <h3 class="fs-3 color-warning">Educational Background</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, maxime molestiae
               ut quisquam corporis debitis, aperiam ad magnam nobis culpa provident quod ullam
@@ -181,6 +169,7 @@ import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import { resumeNavMenu } from '@/utils/resumeUtils.js'
 import WebProdDev from '@/components/resume/WebProdDev.vue'
+import ResumeAwards from '@/components/resume/ResumeAwards.vue'
 
 const isMediaLgUp = useMediaQuery('(min-width: 991px)')
 
@@ -193,7 +182,8 @@ const resumeConfig = {
 const resumeNavToggle = ref(null)
 
 function handleNavClick(sectionID) {
-  const section = document.querySelector(sectionID)
+  const getSection = `#${sectionID}`
+  const section = document.querySelector(getSection)
 
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' })

@@ -12,8 +12,8 @@
 </style>
 <template>
   <div class="guide__wrap">
-    <p class="heading-h3 tc-danger">{{ lostGuideConfig.icon }}</p>
-    <h2 class="heading-h5 tc-danger">{{ lostGuideConfig.msg }}</h2>
+    <p class="heading-h3 color-danger">{{ lostGuideConfig.icon }}</p>
+    <h2 class="heading-h5 color-danger">{{ lostGuideConfig.msg }}</h2>
     <RouterLink class="btn btn-primary" :to="lostGuideConfig.entranceLink">{{
       lostGuideConfig.btn
     }}</RouterLink>
