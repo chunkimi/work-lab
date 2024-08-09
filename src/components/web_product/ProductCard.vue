@@ -2,6 +2,7 @@
 @import '@/styles/main.scss';
 .prod-card {
   &__item {
+    height: 100%;
     display: flex;
     display: grid;
     flex-direction: column;
@@ -65,7 +66,6 @@ const props = defineProps({
 })
 
 const productInfoData = computed(() => {
-  console.log('props.languageMode', props.languageMode)
   return props.productsData
     .map((product) => {
       const { pro_id, info_zh, info_en, repo_url, web_url, ...others } = product

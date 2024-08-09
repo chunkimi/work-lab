@@ -67,7 +67,7 @@
 
 <template>
   <div class="container">
-    <h1 class="heading-h3 text-align-end tc-warning">{{ projectConfig.pageTitle }}</h1>
+    <h1 class="heading-h3 text-align-end color-warning">{{ projectConfig.pageTitle }}</h1>
     <div class="block-spacing">
       <HorizProductCard
         :language-mode="projectConfig.infoLanguageMode"

@@ -15,7 +15,7 @@ import ProductCard from '@/components/web_product/ProductCard.vue'
 import productDevelopData from '@/data/web_product_develop.json'
 
 const webProdDevConfig = {
-  title: resumeNavMenu.find((item) => item.sectionID === '#web-prod-dev').title,
+  title: resumeNavMenu.find((item) => item.sectionID === 'web-prod-dev').title,
   languageMode: 'zh'
 }
 </script>

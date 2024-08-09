@@ -126,7 +126,7 @@
     <main class="layout__main"><RouterView /></main>
     <footer>
       <div class="container py-5">
-        <p class="fs-fixed-7 tc-info text-align-center">{{ labInfo.copyright }}</p>
+        <p class="fs-fixed-7 color-info text-align-center">{{ labInfo.copyright }}</p>
       </div>
     </footer>
   </div>

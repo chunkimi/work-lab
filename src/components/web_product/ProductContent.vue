@@ -22,15 +22,15 @@
 <template>
   <div class="content__body">
     <div>
-      <h5 class="heading-h5 tc-info">{{ contentData.info.website }}</h5>
-      <p class="fz-7 tc-tertiary">{{ contentData.info.nature }}</p>
+      <h5 class="heading-h5 color-info">{{ contentData.info.website }}</h5>
+      <p class="fz-7 color-tertiary">{{ contentData.info.nature }}</p>
     </div>
     <p class="fz-fixed-7">{{ contentData.info.description }}</p>
     <ul class="list-unstyled d-flex flex-wrap" v-if="contentData.isShowDevelopLabel">
       <li
         v-for="developItem in contentData.develop_label"
         :key="developItem"
-        class="tag bg-secondary tc-dark"
+        class="tag bg-secondary color-dark"
       >
         {{ developItem }}
       </li>
@@ -72,7 +72,7 @@ const contentConfig = {
   },
   productUrlConfig: [
     { type: 'github', icon: 'bi-github', textEn: 'source code', textZh: '原始碼' },
-    { type: 'web', icon: 'bi-window-fullscreen', textEn: 'website', textZh: '網站' }
+    { type: 'web', icon: 'bi-laptop', textEn: 'website', textZh: '網站' }
   ]
 }
 
