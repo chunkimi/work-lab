@@ -1,0 +1,30 @@
+[
+  {
+    "id_type": "award",
+    "award_id": "001",
+    "product_name": "2020臺灣總統大選情報站",
+    "prod_type": "web",
+    "awards_info": "2023 THE F2E 團體組入選（團隊：匿名山羌）"
+  },
+  {
+    "id_type": "award",
+    "award_id": "002",
+    "product_name": "臺南西市場",
+    "prod_type": "book",
+    "awards_info": "2022 金鼎獎優良出版品、國史館臺灣文獻館獎勵出版佳作"
+  },
+  {
+    "id_type": "award",
+    "award_id": "003",
+    "product_name": "少男少女見學中",
+    "prod_type": "book",
+    "awards_info": "2021 國史館臺灣文獻館獎勵出版優等"
+  },
+  {
+    "id_type": "award",
+    "award_id": "004",
+    "product_name": "臺南歷史街區好生活",
+    "prod_type": "book",
+    "awards_info": "2023 臺南市政府文化局「臺南100本」入選"
+  }
+]

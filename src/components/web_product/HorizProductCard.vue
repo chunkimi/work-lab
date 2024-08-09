@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 @import '@/styles/main.scss';
 
-.horiz-card {
+.prod-horiz {
   &__img {
     width: 100%;
     height: 100%;
@@ -9,26 +9,27 @@
     max-height: 600px;
     object-fit: cover;
     object-position: center center;
-    border-radius: 10px 10px 0 0;
+    border-radius: 12px 12px 0 0;
     @include media-breakpoint(lg) {
-      border-radius: 10px 0 0 10px;
+      border-radius: 12px 0 0 12px;
     }
   }
 
   &__body {
     padding: 1.25rem 0.75rem;
     background-color: $light;
-    border-radius: 10px;
+    border-radius: 12px;
     @include media-breakpoint(lg) {
       padding: 1.25rem 1.5rem;
     }
   }
+
   &__item {
     display: grid;
     flex-direction: column;
     margin-bottom: 2rem;
     border: 1px solid $auxiliary;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: box-shadow 0.3s ease;
     &:hover {
       box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.175);
@@ -44,13 +45,13 @@
 <template>
   <ul class="list-unstyled row">
     <li class="col-12" v-for="productItem in productInfoData" :key="productItem.cardId">
-      <div class="horiz-card__item">
+      <div class="prod-horiz__item">
         <img
           :src="getImage(turnProductImgPath(productItem.img))"
           alt="product-img"
-          class="horiz-card__img"
+          class="prod-horiz__img"
         />
-        <div class="horiz-card__body">
+        <div class="prod-horiz__body">
           <ProductContent :content-data="productItem" :language-mode="languageMode" />
         </div>
       </div>
@@ -101,7 +102,7 @@ const productInfoData = computed(() => {
         ...others
       }
     })
-    .sort((a, b) => b.cardId.localeCompare(a.cardId))
+    .sort((a, b) => b.cardId.localeCompare(a.cardId, undefined, { numeric: true }))
 })
 
 function turnProductImgPath(img) {

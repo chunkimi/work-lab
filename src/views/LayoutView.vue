@@ -8,13 +8,15 @@
     justify-content: space-between;
     position: relative;
   }
+
   &__header {
-    position: fixed;
-    z-index: 999;
     width: 100%;
     background: $info;
-    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
+
   &__main {
     position: relative;
     flex: 1;
@@ -48,101 +50,83 @@
       transform: translate(50%, 50%);
     }
   }
-}
-.nav {
-  &__wrap {
-    display: none;
-    @include media-breakpoint(lg) {
-      display: block;
-    }
-  }
 
-  &__icon {
-    display: block;
-    color: $primary;
-    cursor: pointer;
-    @include media-breakpoint(lg) {
-      display: none;
+  &__nav {
+    &__brand {
+      color: $primary;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $warning;
+      }
     }
-  }
-  &__menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: $info;
-    z-index: 998;
-    @include media-breakpoint(lg) {
-      display: flex;
-      flex-direction: row;
-      justify-content: right;
-      position: static;
-      background: none;
-      box-shadow: none;
-      border: none;
+    &__menu {
+      background: $info;
     }
-    &.active {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      padding: 3rem;
-      gap: 1rem;
+
+    &__link {
+      text-decoration: none;
+      color: $primary;
     }
-  }
-}
-.scroll-top-btn {
-  width: 32px;
-  height: 32px;
-  font-size: 8px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $dark;
-  background-color: $auxiliary;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-  &:hover,
-  &:active {
-    background-color: darken($auxiliary, 25%);
-    color: $light;
+    &__item {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $primary;
+        .layout__nav__link {
+          color: $info;
+        }
+      }
+    }
+    &__toggle {
+      color: $primary;
+      &:hover {
+        color: $warning;
+      }
+    }
   }
 }
 </style>
 <template>
   <div class="layout__wrap">
     <header class="layout__header">
-      <div class="container d-flex justify-content-between align-items-center py-5">
-        <RouterLink :to="layoutConfig.indexLink.to" class="text-decoration-none">
-          <h2 class="heading-h5 tc-primary ff-particular">{{ labInfo.title }}</h2>
+      <div class="navbar__wrap" :class="isMediaLgUp ? 'container' : ''">
+        <RouterLink :to="layoutConfig.indexLink.to" class="text-decoration-none layout__nav__brand">
+          <h2 class="ff-particular heading-h5 navbar__brand">{{ labInfo.title }}</h2>
         </RouterLink>
-        <nav>
-          <div class="nav__icon" @click="toggleMenu">
-            <span class="material-symbols-outlined">{{ layoutConfig.menuIcon }}</span>
-          </div>
-          <div class="nav__menu" :class="{ active: menuActive }">
-            <RouterLink
-              class="btn btn-outline-primary mx-2"
+        <input
+          type="checkbox"
+          ref="layoutNavToggle"
+          class="navbar__toggle__input"
+          id="layout-navbar-toggle"
+        />
+        <label class="layout__nav__toggle navbar__toggle__label" for="layout-navbar-toggle">
+          <span class="material-symbols-outlined navbar__toggle__icon">
+            {{ layoutConfig.menuIcon }}</span
+          >
+        </label>
+        <nav class="layout__nav__menu navbar__menu">
+          <ul class="navbar__list">
+            <li
+              class="layout__nav__item navbar__item"
               v-for="linkItem in layoutConfig.navLink"
               :key="linkItem.title"
-              :to="linkItem.to"
-              @click="closeMenu"
-              >{{ linkItem.title }}</RouterLink
             >
-          </div>
+              <RouterLink
+                class="layout__nav__link navbar__link"
+                :to="linkItem.to"
+                @click="handleNavClick"
+                >{{ linkItem.title }}</RouterLink
+              >
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
     <main class="layout__main"><RouterView /></main>
     <footer>
       <div class="container py-5">
-        <p class="fs-fixed-7 tc-info text-align-center">{{ labInfo.copyright }}</p>
+        <p class="fs-fixed-7 color-info text-align-center">{{ labInfo.copyright }}</p>
       </div>
     </footer>
   </div>
@@ -154,24 +138,18 @@ import { useMediaQuery } from '@vueuse/core'
 import { labInfo } from '@/data/lab_info.js'
 import { navMenu } from '@/utils/navUtils.js'
 
-const isMediaLgDown = useMediaQuery('(max-width: 991px)')
+const isMediaLgUp = useMediaQuery('(min-width: 991px)')
 
 const layoutConfig = {
   indexLink: navMenu.find((item) => item.title === 'gate'),
   navLink: navMenu.filter((item) => item.title !== 'gate'),
-  menuIcon: 'menu',
-  pageTopIcon: 'arrow_upward'
+  menuIcon: 'menu'
 }
 
-const menuActive = ref(false)
-
-function toggleMenu() {
-  menuActive.value = !menuActive.value
-}
-
-function closeMenu() {
-  if (isMediaLgDown) {
-    menuActive.value = false
+const layoutNavToggle = ref(null)
+function handleNavClick() {
+  if (layoutNavToggle.value && !isMediaLgUp.value) {
+    layoutNavToggle.value.checked = false
   }
 }
 </script>

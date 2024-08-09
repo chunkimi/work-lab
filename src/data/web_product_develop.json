@@ -4,9 +4,9 @@
     "pro_id": "001",
     "info_zh": {
       "website": "校園生活記憶庫",
-      "description": "博物館藏品經數位化後，利用資料庫檢索與瀏覽功能提升應用性。原始數據從通用資料庫提取，經管理者後台彙整與重新編輯後，提供使用者瀏覽與查詢。",
+      "description": "博物館實物藏品經數位化後，利用資料庫檢索與瀏覽功能提升應用性。原始數據從通用資料庫提取，經管理者後台彙整與重新編輯後，提供外部瀏覽與查詢。",
       "nature": "公司內外部合作開發的正式產品",
-      "role": "內容企劃、日常營運",
+      "role": "資料庫內容企劃、日常營運",
       "task": "規劃實物數位化流程與資料庫功能、Metadata欄位與著錄內容的撰寫規則，與後續應用推廣企劃"
     },
     "info_en": {
@@ -26,8 +26,8 @@
     "pro_id": "002",
     "info_zh": {
       "website": "Simple Twitter",
-      "description": "具有基礎功能的模擬社交平台，採用前後端分離的團隊開發方式，專案主要功能包括會員註冊、追蹤評論、修改個人資料等CRUD操作，以及管理者帳號管理。此專案為達成進修課程結業要求的產品開發實作練習。",
-      "nature": "前後端分離的團隊開發",
+      "description": "具有基礎功能的模擬社交平台，採用前後端分離開發。主要功能包括會員註冊、追蹤評論、修改個人資料等CRUD操作，以及管理者帳號進行會員管理。此專案為達成進修課程結業要求的產品開發實作。",
+      "nature": "前後端分離的團隊協作（進修實作）",
       "role": "前端、PM",
       "task": "前端開發、進度管理、驗收標準清單及demo會議紀錄撰寫"
     },
@@ -49,10 +49,10 @@
     "pro_id": "003",
     "info_zh": {
       "website": "2020臺灣總統大選情報站",
-      "description": "選票查詢與分析平台，利用中選會的真實選票數據和模擬候選人，通過多種圖表和視角深入分析選票。",
-      "nature": "團隊協作",
+      "description": "選票查詢與分析平台，利用中選會的真實選票數據和模擬候選人，通過多種圖表和視角深入分析選票。2023年THE F2E活動參賽作品（團隊：匿名山羌），團體組入選。",
+      "nature": "團隊協作Side Project",
       "role": "前端、企劃",
-      "task": "前端、內容企劃、wireframe"
+      "task": "前端、內容企劃（候選人虛擬腳本、圖表分析類型）與wireframe"
     },
     "info_en": {
       "website": "2020 Taiwan Presidential Election Election Hub",
@@ -62,7 +62,15 @@
       "task": "Front-end Development, Wireframe, Content Planning "
     },
 
-    "develop_label": ["Vue.js 3", "VITE", "d3.js", "chart.js", "Bootstrap 5", "firebase"],
+    "develop_label": [
+      "JavaScript",
+      "Vue.js 3",
+      "VITE",
+      "d3.js",
+      "chart.js",
+      "Bootstrap 5",
+      "firebase"
+    ],
     "web_url": "https://chunkimi.github.io/vote-inquiry/#/",
     "repo_url": "https://github.com/chunkimi/vote-inquiry",
     "img": "vote-inquiry"
@@ -73,9 +81,9 @@
     "info_zh": {
       "website": "郊友趣",
       "description": "以自然步道為主題，整合政府開放數據和會員CRUD功能，提供多樣檢索與瀏覽，藉由JSON格式轉換實現收藏、評價，以及個人化分析圖表。",
-      "nature": "個人作品",
+      "nature": "個人Side Project",
       "role": "前端、企劃",
-      "task": "前端、內容企劃、wireframe"
+      "task": "前端、整體功能與內容企劃（含wireframe）"
     },
     "info_en": {
       "website": "Hiking Friends",
@@ -85,7 +93,7 @@
       "task": "Front-end Development,Wireframe, Content Planning "
     },
 
-    "develop_label": ["Vue.js 3", "VITE", "chart.js", "Bootstrap 5", "SCSS"],
+    "develop_label": ["JavaScript", "Vue.js 3", "VITE", "chart.js", "Bootstrap 5", "SCSS"],
     "web_url": "https://chunkimi.github.io/hiking-friends/#/",
     "repo_url": "https://github.com/chunkimi/hiking-friends",
     "img": "hiking-friends"

@@ -103,6 +103,7 @@ body {
   font-weight: map-get($font-weight, normal);
   color: $dark;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 img {

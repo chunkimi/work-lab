@@ -17,26 +17,26 @@
 </style>
 <template>
   <div class="container">
-    <h1 class="fs-fixed-7 tc-info mb-5">{{ profileConfig.title }}</h1>
-    <h2 class="heading-h2 mb-5 tc-warning ff-particular">
+    <h1 class="fs-fixed-7 color-info mb-5">{{ profileConfig.title }}</h1>
+    <h2 class="heading-h2 mb-5 color-warning ff-particular">
       {{ profileData.name }}
     </h2>
     <div class="fs-fixed-6 mb-5 fw-light" v-html="formattedIntro"></div>
     <ul class="list-unstyled profile__list">
-      <li v-for="skillItem in allSkills" :key="skillItem" class="tag bg-tertiary-50 tc-dark">
+      <li v-for="skillItem in allSkills" :key="skillItem" class="tag bg-tertiary-50 color-dark">
         {{ skillItem }}
       </li>
     </ul>
     <ul class="list-unstyled">
       <li v-for="snsItem in profileData.sns" :key="snsItem.type">
-        <a :href="snsItem.url" class="text-decoration-none tc-info fs-fixed-5">
+        <a :href="snsItem.url" class="text-decoration-none color-info fs-fixed-5">
           <i class="bi bi-github"></i>
         </a>
       </li>
     </ul>
     <div class="p-4 d-flex flex-row-reverse">
       <RouterLink :to="profileConfig.projectLink.to" class="fs-fixed-6 link-info profile__link">
-        <span class="me-1">{{ profileConfig.projectLink.text }}</span>
+        <span class="me-2">{{ profileConfig.projectLink.text }}</span>
         <span class="material-symbols-outlined"> directions_run </span>
       </RouterLink>
     </div>

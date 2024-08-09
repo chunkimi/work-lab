@@ -2,7 +2,7 @@
 
 // text-color
 @each $color-key, $color-value in $theme-colors {
-  .tc-#{$color-key} {
+  .color-#{$color-key} {
     color: $color-value;
   }
 }

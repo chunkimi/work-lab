@@ -74,3 +74,92 @@
   font-weight: map-get($font-weight, light);
   border-radius: 28px;
 }
+
+.navbar {
+  &__wrap {
+    width: 100%;
+    text-align: center;
+    @include media-breakpoint(lg) {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+  &__brand {
+    line-height: $header-nav-height;
+  }
+  &__menu {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+    transform: scale(1, 0);
+    @include media-breakpoint(lg) {
+      width: auto;
+      position: static;
+      transform: none;
+      background: transparent;
+    }
+  }
+  &__list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include media-breakpoint(lg) {
+      flex-direction: row;
+      height: 100%;
+    }
+  }
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+  }
+  &__item {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include media-breakpoint(lg) {
+      opacity: 1;
+      width: auto;
+    }
+  }
+  &__toggle {
+    &__input {
+      visibility: hidden;
+      position: absolute;
+      &:checked ~ .navbar__menu {
+        transform: scale(1, 1);
+      }
+      &:checked ~ .navbar__menu .navbar__item {
+        transition: opacity 0.2s ease-out 0.15s;
+        opacity: 1;
+      }
+      @include media-breakpoint(lg) {
+        display: none;
+      }
+    }
+    &__label {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 7.5%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      @include media-breakpoint(lg) {
+        display: none;
+      }
+    }
+    &__icon {
+      position: relative;
+    }
+  }
+}

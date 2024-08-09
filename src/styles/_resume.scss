@@ -1,0 +1,28 @@
+@use 'sass:math';
+@import '_helpers';
+
+.resume-section {
+  &__wrap {
+    background-color: rgba(255, 255, 255, $alpha: 0.75);
+    color: $dark;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+  &__header {
+    margin-bottom: 0.5rem;
+    color: $info;
+    font-size: map-get($font-sizes, 4);
+    font-weight: map-get($font-weight, normal);
+    line-height: map-get($line-height, sm);
+
+    @each $breakpoint, $multiplier in $font-size-multipliers {
+      @include media-breakpoint($breakpoint) {
+        font-size: math.div(map-get($font-sizes, 4) * $multiplier, 1);
+      }
+    }
+  }
+  &__body {
+    font-size: $font-sizes-7;
+    color: $dark;
+  }
+}
