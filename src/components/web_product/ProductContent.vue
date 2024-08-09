@@ -37,7 +37,7 @@
         <li
           v-for="developItem in contentData.develop_label"
           :key="developItem"
-          class="tag bg-secondary color-dark"
+          class="tag bg-secondary-50 color-dark"
         >
           {{ developItem }}
         </li>

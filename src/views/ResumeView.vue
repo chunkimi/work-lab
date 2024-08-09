@@ -149,7 +149,6 @@
             </p>
           </div>
         </div>
-        <!-- Educational Background -->
         <div class="resume__section" id="edu">
           <ResumeEdu />
         </div>

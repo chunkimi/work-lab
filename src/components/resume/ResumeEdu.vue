@@ -5,13 +5,10 @@
     </div>
   </div>
 </template>
- <script setup>
-
+<script setup>
 import { resumeNavMenu } from '@/utils/resumeUtils.js'
 
-
 const eduConfig = {
-  sectionTitle: resumeNavMenu.find((item) => item.sectionID === 'edu').title,
- 
+  sectionTitle: resumeNavMenu.find((item) => item.sectionID === 'edu').title
 }
 </script>

@@ -4,14 +4,14 @@
       <h2 class="resume-section__header">{{ awardsConfig.sectionTitle }}</h2>
       <ul class="list-unstyled">
         <li
-          v-for="awardItem,index in awardsData"
+          v-for="(awardItem, index) in awardsData"
           :key="awardItem.itemId"
           class="d-flex align-items-center"
-          :class="index!==0?'mt-2':''"
+          :class="index !== 0 ? 'mt-2' : ''"
         >
           <p class="tag d-flex align-items-center bg-quaternary-25 color-dark">
             <span class="material-symbols-outlined"> {{ awardItem.typeIcon }}</span>
-            <span class="ms-1" v-if="isMediaMdUp">{{ awardItem.typeText }}</span>
+            <span class="ms-2" v-if="isMediaMdUp">{{ awardItem.typeText }}</span>
           </p>
           <p class="color-support fs-fixed-7">{{ awardItem.text }}</p>
         </li>
